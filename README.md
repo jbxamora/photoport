@@ -6,6 +6,7 @@ This template is a plug and play image gallery portfolio site using Next.js, [Cl
 
 ## Take A Look!
 
+<img width="1723" alt="Screenshot 2023-05-15 at 4 32 54 PM" src="https://github.com/jbxamora/photoport/assets/113067058/983fcfda-bc1e-4b07-b7d3-d6c331259b23">
 
 [Deployed Site](https://www.usergio.com/)
 ## Installation
@@ -126,4 +127,14 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+### NOTE
+
+**THIS TEMPLATE IS EXAPNDED ON TOP OF ANOTHER* 
+ 
+**ADDED: FILTER, ABOUT, CONTACT.
+  
+** ORIGINAL CODE:  
+
+https://vercel.com/templates/next.js/image-gallery-starter
 
