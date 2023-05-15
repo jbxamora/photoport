@@ -1,4 +1,4 @@
-import cloudinary from "cloudinary";
+import cloudinary from "../../utils/cloudinary";
 
 export default async function handler(req, res) {
   if (req.method === "GET") {
