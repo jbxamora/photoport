@@ -49,7 +49,7 @@ const Home: NextPage = ({
           width: result.width,
           public_id: result.public_id,
           format: result.format,
-          category: category,
+          category: "samples",
           blurDataUrl: blurDataUrls[i],
         }));
 
