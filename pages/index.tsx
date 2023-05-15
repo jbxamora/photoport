@@ -14,56 +14,61 @@ import About from '../components/About'
 import NameCard from '../components/NameCard'
 import Filter from "../components/Filter"
 
-const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
+const Home: NextPage = ({
+  images: initialImages,
+}: {
+  images: ImageProps[];
+}) => {
   const router = useRouter();
   const { photoId } = router.query;
+  const [images, setImages] = useState(initialImages);
+
   const [lastViewedPhoto, setLastViewedPhoto] = useLastViewedPhoto();
   const [filteredImages, setFilteredImages] = useState(images);
 
-const fetchImagesByCategory = async (category: string) => {
-  try {
-    const res = await fetch(
-      `/api/images?folder=samples/${encodeURIComponent(category)}`
-    );
-    const data = await res.json();
-
-    if (data.length > 0) {
-      const blurDataUrlPromises = data.map((image) =>
-        fetch(
-          `/api/getBlurDataUrl?image=${encodeURIComponent(image.public_id)}`
-        )
-          .then((res) => res.json())
-          .then((json) => json.blurDataURL)
+  const fetchImagesByCategory = async (category: string) => {
+    try {
+      const res = await fetch(
+        `/api/images?folder=samples/${encodeURIComponent(category)}`
       );
-      const blurDataUrls = await Promise.all(blurDataUrlPromises);
+      const data = await res.json();
 
-      const formattedData = data.map((result, i) => ({
-        id: i,
-        height: result.height,
-        width: result.width,
-        public_id: result.public_id,
-        format: result.format,
-        category: category,
-        blurDataUrl: blurDataUrls[i],
-      }));
+      if (data.length > 0) {
+        const blurDataUrlPromises = data.map((image) =>
+          fetch(
+            `/api/getBlurDataUrl?image=${encodeURIComponent(image.public_id)}`
+          )
+            .then((res) => res.json())
+            .then((json) => json.blurDataURL)
+        );
+        const blurDataUrls = await Promise.all(blurDataUrlPromises);
 
-      setFilteredImages(formattedData);
-    } else {
-      setFilteredImages([]);
+        const formattedData = data.map((result, i) => ({
+          id: i,
+          height: result.height,
+          width: result.width,
+          public_id: result.public_id,
+          format: result.format,
+          category: category,
+          blurDataUrl: blurDataUrls[i],
+        }));
+
+        setFilteredImages(formattedData);
+      } else {
+        setFilteredImages([]);
+      }
+    } catch (error) {
+      console.error(error);
     }
-  } catch (error) {
-    console.error(error);
-  }
-};
+  };
 
-const handleCategorySelect = (category: string) => {
-  if (category === "") {
-    setFilteredImages(images); // Show all photos
-  } else {
-    fetchImagesByCategory(category); // Fetch images based on category
-  }
-};
-
+  const handleCategorySelect = (category: string) => {
+    if (category === "") {
+      setFilteredImages(images); // Show all photos
+    } else {
+      fetchImagesByCategory(category); // Fetch images based on category
+    }
+  };
 
   const lastViewedPhotoRef = useRef<HTMLAnchorElement>(null);
 
@@ -75,7 +80,6 @@ const handleCategorySelect = (category: string) => {
     }
   }, [photoId, lastViewedPhoto, setLastViewedPhoto]);
 
-
   return (
     <>
       <Head>
@@ -84,7 +88,7 @@ const handleCategorySelect = (category: string) => {
       <main className="mx-auto max-w-[1960px] p-4">
         {photoId && (
           <Modal
-            images={filteredImages} 
+            images={filteredImages}
             onClose={() => {
               setLastViewedPhoto(photoId);
             }}
@@ -95,40 +99,42 @@ const handleCategorySelect = (category: string) => {
           <About className="flex-grow" />
         </div>
         <Filter
-          categories={["animals", "Lifestyle", "people", "Events", "landscapes"]}
+          categories={[
+            "animals",
+            "Lifestyle",
+            "people",
+            "Events",
+            "landscapes",
+          ]}
           onCategorySelect={handleCategorySelect}
         />
-        
-        <div className="columns-1 gap-4 mt-4 sm:columns-2 xl:columns-3 2xl:columns-4">
-          {filteredImages.map(
-            (
-              { id, public_id, format, blurDataUrl } 
-            ) => (
-              <Link
-                key={id}
-                href={`/?photoId=${id}`}
-                as={`/p/${id}`}
-                ref={id === Number(lastViewedPhoto) ? lastViewedPhotoRef : null}
-                shallow
-                className="after:content group relative mb-5 block w-full cursor-zoom-in after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight"
-              >
-                <Image
-                  alt=""
-                  className="transform rounded brightness-90 transition will-change-auto group-hover:brightness-110"
-                  style={{ transform: "translate3d(0, 0, 0)" }}
-                  placeholder="blur"
-                  blurDataURL={blurDataUrl}
-                  src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_720/${public_id}.${format}`}
-                  width={720}
-                  height={480}
-                  sizes="(max-width: 640px) 100vw,
+
+        <div className="mt-4 columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-4">
+          {filteredImages.map(({ id, public_id, format, blurDataUrl }) => (
+            <Link
+              key={id}
+              href={`/?photoId=${id}`}
+              as={`/p/${id}`}
+              ref={id === Number(lastViewedPhoto) ? lastViewedPhotoRef : null}
+              shallow
+              className="after:content group relative mb-5 block w-full cursor-zoom-in after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight"
+            >
+              <Image
+                alt=""
+                className="transform rounded brightness-90 transition will-change-auto group-hover:brightness-110"
+                style={{ transform: "translate3d(0, 0, 0)" }}
+                placeholder="blur"
+                blurDataURL={blurDataUrl}
+                src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_720/${public_id}.${format}`}
+                width={720}
+                height={480}
+                sizes="(max-width: 640px) 100vw,
                   (max-width: 1280px) 50vw,
                   (max-width: 1536px) 33vw,
                   25vw"
-                />
-              </Link>
-            )
-          )}
+              />
+            </Link>
+          ))}
         </div>
       </main>
     </>
