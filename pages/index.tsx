@@ -149,28 +149,34 @@ export async function getStaticProps() {
     .sort_by("public_id", "desc")
     .max_results(400)
     .execute();
+  let reducedResults: ImageProps[] = [];
 
-  const images = results.resources.map((result, index) => ({
-    id: index,
-    height: result.height,
-    width: result.width,
-    public_id: result.public_id,
-    format: result.format,
-    blurDataUrl: null,
-  }));
+  let i = 0;
+  for (let result of results.resources) {
+    reducedResults.push({
+      id: i,
+      height: result.height,
+      width: result.width,
+      public_id: result.public_id,
+      format: result.format,
+    });
+    i++;
+  }
 
-  const blurImagePromises = images.map((image) => getBase64ImageUrl(image));
+  const blurImagePromises = results.resources.map((image: ImageProps) => {
+    return getBase64ImageUrl(image);
+  });
   const imagesWithBlurDataUrls = await Promise.all(blurImagePromises);
 
-  images.forEach((image, index) => {
-    image.blurDataUrl = imagesWithBlurDataUrls[index];
-  });
+  for (let i = 0; i < reducedResults.length; i++) {
+    reducedResults[i].blurDataUrl = imagesWithBlurDataUrls[i];
+  }
 
-  images.sort(() => Math.random() - 0.5);
+  reducedResults.sort(() => Math.random() - 0.5);
 
   return {
     props: {
-      images,
+      images: reducedResults,
     },
   };
 }
