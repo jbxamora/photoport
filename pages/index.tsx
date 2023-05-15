@@ -145,7 +145,7 @@ export default Home;
 
 export async function getStaticProps() {
   const results = await cloudinary.v2.search
-    .expression(`folder:${process.env.CLOUDINARY_FOLDER}/*`)
+    .expression(`folder:samples/*`)
     .sort_by("public_id", "desc")
     .max_results(400)
     .execute();
@@ -159,7 +159,7 @@ export async function getStaticProps() {
       width: result.width,
       public_id: result.public_id,
       format: result.format,
-      category: process.env.CLOUDINARY_FOLDER, 
+      category: "samples", 
     });
     i++;
   }
