@@ -171,8 +171,6 @@ export async function getStaticProps() {
     reducedResults[i].blurDataUrl = imagesWithBlurDataUrls[i];
   }
 
-  reducedResults.sort(() => Math.random() - 0.5);
-
   return {
     props: {
       images: reducedResults,
