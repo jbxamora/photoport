@@ -17,7 +17,52 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
   const router = useRouter();
   const { photoId } = router.query;
   const [lastViewedPhoto, setLastViewedPhoto] = useLastViewedPhoto();
-  const [selectedCategory, setSelectedCategory] = useState(""); 
+  const [filteredImages, setFilteredImages] = useState(images);
+
+const fetchImagesByCategory = async (category: string) => {
+  try {
+    const res = await fetch(
+      `/api/images?folder=samples/${encodeURIComponent(category)}`
+    );
+    const data = await res.json();
+
+    if (data.length > 0) {
+      const blurDataUrlPromises = data.map((image) =>
+        fetch(
+          `/api/getBlurDataUrl?image=${encodeURIComponent(image.public_id)}`
+        )
+          .then((res) => res.json())
+          .then((json) => json.blurDataURL)
+      );
+      const blurDataUrls = await Promise.all(blurDataUrlPromises);
+
+      const formattedData = data.map((result, i) => ({
+        id: i,
+        height: result.height,
+        width: result.width,
+        public_id: result.public_id,
+        format: result.format,
+        category: category,
+        blurDataUrl: blurDataUrls[i],
+      }));
+
+      setFilteredImages(formattedData);
+    } else {
+      setFilteredImages([]);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const handleCategorySelect = (category: string) => {
+  if (category === "") {
+    setFilteredImages(images); // Show all photos
+  } else {
+    fetchImagesByCategory(category); // Fetch images based on category
+  }
+};
+
 
   const lastViewedPhotoRef = useRef<HTMLAnchorElement>(null);
 
@@ -29,9 +74,6 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
     }
   }, [photoId, lastViewedPhoto, setLastViewedPhoto]);
 
-  const filteredImages = images.filter(
-    (image) => image.category === selectedCategory || selectedCategory === ""
-  );
 
   return (
     <>
@@ -52,10 +94,10 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
           <About className="flex-grow" />
         </div>
         <Filter
-          categories={["Cars", "Lifestyle", "People", "Events", "Landscapes"]}
-          onCategorySelect={setSelectedCategory}
+          categories={["animals", "Lifestyle", "people", "Events", "landscapes"]}
+          onCategorySelect={handleCategorySelect}
         />
-
+        
         <div className="columns-1 gap-4 mt-4 sm:columns-2 xl:columns-3 2xl:columns-4">
           {filteredImages.map(
             (
