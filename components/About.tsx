@@ -5,14 +5,13 @@ import Link from "next/link";
 
 import Instagram from "../components/Icons/Instagram";
 import Email from "../components/Icons/Email"
-import Twitter from "../components/Icons/Twitter"
 
 const About = ({ className = "" }) => {
   const [showContact, setShowContact] = useState(false);
 
   return (
     <div
-      className={`${className} container col-span-1 flex h-[629px] flex-col overflow-y-auto rounded-lg bg-white/10  px-6 text-white shadow-highlight`}
+      className={`${className} container col-span-1 h-[629px] flex-col overflow-y-auto rounded-lg bg-white/10  px-6 text-white shadow-highlight md:block hidden`}
     >
       {!showContact && (
         <div className="flex justify-center">
@@ -27,12 +26,11 @@ const About = ({ className = "" }) => {
       )}
       {!showContact ? (
         <>
-          <h1 className="mb-10 mt-10 text-center text-2xl font-bold uppercase tracking-widest">
+          <h1 className="mb-5 text-center text-2xl font-bold uppercase tracking-widest">
             About Me
           </h1>
           <p className="mx-auto px-4 text-center text-lg text-white/75 lg:hidden">
-            I'm a web developer with a deep passion for photography. With every
-            click of the shutter, I freeze moments in time and tell unique
+            I'm a web developer with a deep passion for photography. I freeze moments in time and tell unique
             stories through my images. 
           </p>
           <p className="mx-auto hidden px-4 text-center text-lg text-white/75 lg:block">
@@ -43,7 +41,7 @@ const About = ({ className = "" }) => {
             place and evokes a myriad of emotions.
           </p>
           <button
-            className="mt-4 self-center rounded  border px-4 py-2 font-bold text-white hover:border-green-400"
+            className="mt-4 flex mx-auto rounded border px-4 py-2 font-bold text-white hover:border-green-400"
             onClick={() => setShowContact(true)}
           >
             Get In Touch
@@ -62,12 +60,12 @@ const About = ({ className = "" }) => {
             location, and price of the shoot through email as soon as possible.
             I'm looking forward to capturing the perfect shots for your needs!
           </p>
-          <p className="mx-auto text-center text-lg text-white/75">
+          <p className="mx-auto text-center text-lg text-white/75 mb-8">
             Got any unique requests or queries? Don't hesitate to DM me on
             Instagram or drop me an email. I'm here to answer any and all your
             questions.
           </p>
-          <div className="flex flex-row justify-center">
+          <div className="flex flex-row justify-center mb-8">
             <Link href="https://instagram.com/sondersergio" target="_blank">
               <button className="flex items-center rounded px-4 py-2">
                 <Instagram />
@@ -78,14 +76,9 @@ const About = ({ className = "" }) => {
                 <Email />
               </button>
             </Link>
-            {/* <Link href="https://twitter.com/">
-              <button className="flex items-center rounded px-4 py-2 font-bold text-white">
-                <Twitter />
-              </button>
-            </Link> */}
           </div>
           <button
-            className="mt-4 self-center rounded border  px-4 py-2 font-bold text-white hover:border-green-400"
+            className="mt-4 mx-auto flex rounded border px-4 py-2 font-bold text-white hover:border-green-400"
             onClick={() => setShowContact(false)}
           >
             Back
