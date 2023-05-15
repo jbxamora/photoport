@@ -1,7 +1,7 @@
 
 # Cloudinary Phototographer Portfolio
 
-This example shows how to create an image gallery portfolio site using Next.js, [Cloudinary](https://cloudinary.com), and [Tailwind](https://tailwindcss.com).
+This template is a plug and play image gallery portfolio site using Next.js, [Cloudinary](https://cloudinary.com), and [Tailwind](https://tailwindcss.com).
 
 
 ## Take A Look!
@@ -20,13 +20,13 @@ Install Dependencies:
   
 `npm i` **or** `npm install`
   
-Create dotenv file:
+Create dotenv file with the following lines:
   
-`
-NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=yourcloudinarycloudname
-CLOUDINARY_API_KEY=yourcloudinaryapikey
-CLOUDINARY_API_SECRET=yourcloudinaryapisecret
-`
+`NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=yourcloudinarycloudname`
+  
+`CLOUDINARY_API_KEY=yourcloudinaryapikey` 
+    
+`CLOUDINARY_API_SECRET=yourcloudinaryapisecret`
   
 Run on your local machine:
   
