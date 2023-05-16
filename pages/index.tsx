@@ -99,7 +99,7 @@ const Home: NextPage = ({
         </div>
         <Filter
           categories={[
-            "animals",
+            "Cars",
             "Lifestyle",
             "people",
             "Events",
