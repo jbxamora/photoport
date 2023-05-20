@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import useKeypress from 'react-use-keypress'
 import type { ImageProps } from '../utils/types'
 import { useLastViewedPhoto } from '../utils/useLastViewedPhoto'
-import SharedModal from './SharedModal'
+// import SharedModal from './SharedModal'
 
 export default function Carousel({
   index,
@@ -29,9 +29,9 @@ export default function Carousel({
   })
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center">
+    <div className="inset-0 flex items-center justify-center">
       <button
-        className="absolute inset-0 z-30 cursor-default bg-black backdrop-blur-2xl"
+        className=" z-30 cursor-default object-contain bg-black backdrop-blur-2xl"
         onClick={closeModal}
       >
         <Image
@@ -42,13 +42,13 @@ export default function Carousel({
           priority={true}
         />
       </button>
-      <SharedModal
+      {/* <SharedModal
         index={index}
         changePhotoId={changePhotoId}
         currentPhoto={currentPhoto}
         closeModal={closeModal}
         navigation={false}
-      />
+      /> */}
     </div>
   )
 }

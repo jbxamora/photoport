@@ -74,11 +74,11 @@ export default function SharedModal({
                 <Image
                   src={`https://res.cloudinary.com/${
                     process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
-                  }/image/upload/c_scale,${navigation ? 'w_1280' : 'w_1920'}/${
+                  }/image/upload/c_scale/${
                     currentImage.public_id
                   }.${currentImage.format}`}
-                  width={navigation ? 1280 : 1920}
-                  height={navigation ? 853 : 1280}
+                  width={1920}
+                  height={1280}
                   priority
                   alt="Next.js Conf image"
                   onLoadingComplete={() => setLoaded(true)}
