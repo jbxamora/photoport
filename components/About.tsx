@@ -11,7 +11,7 @@ const About = ({ className = "" }) => {
 
   return (
     <div
-      className={`${className} container col-span-1 h-[629px] flex-col overflow-y-auto rounded-lg bg-white/10  px-6 text-white shadow-highlight md:block hidden`}
+      className={`${className} container col-span-1 hidden h-[629px] flex-col overflow-y-auto rounded-lg  bg-white/10 px-6 text-white shadow-highlight md:block`}
     >
       {!showContact && (
         <div className="flex justify-center">
@@ -30,8 +30,8 @@ const About = ({ className = "" }) => {
             About Me
           </h1>
           <p className="mx-auto px-4 text-center text-lg text-white/75 lg:hidden">
-            I'm a web developer with a deep passion for photography. I freeze moments in time and tell unique
-            stories through my images. 
+            I'm a web developer with a deep passion for photography. I freeze
+            moments in time and tell unique stories through my images.
           </p>
           <p className="mx-auto hidden px-4 text-center text-lg text-white/75 lg:block">
             I am a web developer with a deep passion in the art of photography.
@@ -41,7 +41,7 @@ const About = ({ className = "" }) => {
             place and evokes a myriad of emotions.
           </p>
           <button
-            className="mt-4 flex mx-auto rounded border px-4 py-2 font-bold text-white hover:border-green-400"
+            className="mx-auto mt-4 flex rounded border px-4 py-2 font-bold text-white hover:border-green-400"
             onClick={() => setShowContact(true)}
           >
             Get In Touch
@@ -60,25 +60,25 @@ const About = ({ className = "" }) => {
             location, and price of the shoot through email as soon as possible.
             I'm looking forward to capturing the perfect shots for your needs!
           </p>
-          <p className="mx-auto text-center text-lg text-white/75 mb-8">
+          <p className="mx-auto mb-8 text-center text-lg text-white/75">
             Got any unique requests or queries? Don't hesitate to DM me on
             Instagram or drop me an email. I'm here to answer any and all your
             questions.
           </p>
-          <div className="flex flex-row justify-center mb-8">
+          <div className="mb-8 flex flex-row justify-center">
             <Link href="https://instagram.com/sondersergio" target="_blank">
               <button className="flex items-center rounded px-4 py-2">
                 <Instagram />
               </button>
             </Link>
-            <Link href="mailto:sergiourbina1@yahoo.com">
+            <Link href="mailto:sergiourbina1@yahoo.com?subject=Exciting%20Collaboration%20Opportunity&body=Hey%20Sergio,%0A%0AHope this email finds you well!%0A%0AI saw your photo gallery and wanted to reach out to discuss a potential collaboration%0A%0AI have an exciting project in mind where your unique artistic vision and expertise can shine.%0A%0A[About Your Project]%0A%0APlease let me know your availability for a quick call or meeting. I'm eager to hear your thoughts and ideas.%0A%0AThank you for considering this invitation.%0A%0A[Your Name]">
               <button className="flex items-center rounded px-4 py-2">
                 <Email />
               </button>
             </Link>
           </div>
           <button
-            className="mt-4 mx-auto flex rounded border px-4 py-2 font-bold text-white hover:border-green-400"
+            className="mx-auto mt-4 flex rounded border px-4 py-2 font-bold text-white hover:border-green-400"
             onClick={() => setShowContact(false)}
           >
             Back
