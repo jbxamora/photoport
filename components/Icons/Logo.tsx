@@ -87,7 +87,7 @@ export default function Logo() {
                           stroke="transparent"
                           data-fill-palette-color="accent"
                           x="0"
-                          fill-opacity="1"
+                          fillOpacity="1"
                         ></rect>
                         <rect
                           width="13.844560842163299"
@@ -96,7 +96,7 @@ export default function Logo() {
                           stroke="transparent"
                           data-fill-palette-color="accent"
                           x="16.883610783125974"
-                          fill-opacity="0.75"
+                          fillOpacity="0.75"
                         ></rect>
                         <rect
                           width="13.844560842163299"
@@ -120,9 +120,9 @@ export default function Logo() {
                   y2="0.5"
                   id="2bc02545-4c25-410d-8a64-1cbf7e323da6"
                 >
-                  <stop stop-color="#8c8c8c" offset="0"></stop>
-                  <stop stop-color="#e3e4e5" offset="0.498"></stop>
-                  <stop stop-color="#8c8c8c" offset="1"></stop>
+                  <stop stopColor="#8c8c8c" offset="0"></stop>
+                  <stop stopColor="#e3e4e5" offset="0.498"></stop>
+                  <stop stopColor="#8c8c8c" offset="1"></stop>
                 </linearGradient>
               </defs>
               <mask id="cb410371-d1aa-4e65-b473-393416f2c6ee">
