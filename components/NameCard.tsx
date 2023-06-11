@@ -30,7 +30,7 @@ const NameCard: React.FC<NameCardProps> = ({ className = "" }) => {
       <div className="mb-15 block text-3xl font-bold text-slate-300 lg:hidden">
         Sergio Urbina
       </div>
-      <p className="text-white/75 ">San Fransisco, CA</p>
+      <p className="text-white/75 ">San Francisco, CA</p>
 
       <h1 className="mb-4 mt-8 text-2xl font-bold uppercase tracking-widest">
         Gallery

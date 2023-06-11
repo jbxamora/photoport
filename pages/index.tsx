@@ -101,7 +101,7 @@ const Home: NextPage = ({
           categories={[
             "Cars",
             "Lifestyle",
-            "people",
+            "Custom",
             "Events",
             "landscapes",
           ]}
