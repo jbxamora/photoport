@@ -1,4 +1,4 @@
-export default function Email(props) {
+export default function Email(props: any) {
   return (
     <svg
       viewBox="0 0 512 512"

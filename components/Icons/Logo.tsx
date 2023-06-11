@@ -105,7 +105,7 @@ export default function Logo() {
                           stroke="transparent"
                           data-fill-palette-color="accent"
                           x="33.76722156625195"
-                          fill-opacity="0.5"
+                          fillOpacity="0.5"
                         ></rect>
                       </g>
                     </svg>

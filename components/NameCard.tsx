@@ -35,7 +35,7 @@ const NameCard: React.FC<NameCardProps> = ({ className = "" }) => {
       <h1 className="mb-4 mt-8 text-2xl font-bold uppercase tracking-widest">
         Gallery
       </h1>
-      <p className="text-white/75 ">Capturing Amazing Moments Since 2018</p>
+      <p className="text-white/75 ">Capturing Amazing Moments Since 2017</p>
 
       <button
         className="z-10 mt-4 rounded-lg bg-white/10 px-4 py-2 text-white shadow-highlight hover:bg-white/20 lg:hidden"
