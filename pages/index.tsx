@@ -99,11 +99,12 @@ const Home: NextPage = ({
         </div>
         <Filter
           categories={[
-            "Cars",
+            "Automotive",
             "Lifestyle",
-            "Custom",
-            "Events",
-            "landscapes",
+            "Wedding",
+            "Holiday Card",
+            "Baptism",
+            "Farmers Market",
           ]}
           onCategorySelect={handleCategorySelect}
         />
