@@ -112,6 +112,7 @@ const Home: NextPage = ({
             "Baptism",
             "Farmers-Market",
           ]}
+          initialCategory={defaultCategory}
           onCategorySelect={handleCategorySelect}
         />
 
