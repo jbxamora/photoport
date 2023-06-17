@@ -1,17 +1,17 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useEffect, useRef, useState } from 'react'
-import Modal from '../components/Modal'
-import cloudinary from '../utils/cloudinary'
-import getBase64ImageUrl from '../utils/generateBlurPlaceholder'
-import type { ImageProps } from '../utils/types'
-import { useLastViewedPhoto } from '../utils/useLastViewedPhoto'
-import About from '../components/About'
-import NameCard from '../components/NameCard'
-import Filter from "../components/Filter"
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect, useRef, useState } from "react";
+import Modal from "../components/Modal";
+import cloudinary from "../utils/cloudinary";
+import getBase64ImageUrl from "../utils/generateBlurPlaceholder";
+import type { ImageProps } from "../utils/types";
+import { useLastViewedPhoto } from "../utils/useLastViewedPhoto";
+import About from "../components/About";
+import NameCard from "../components/NameCard";
+import Filter from "../components/Filter";
 
 const Home: NextPage = ({
   images: initialImages,
@@ -24,6 +24,12 @@ const Home: NextPage = ({
 
   const [lastViewedPhoto, setLastViewedPhoto] = useLastViewedPhoto();
   const [filteredImages, setFilteredImages] = useState(images);
+
+  const defaultCategory = "Automotive";
+  useEffect(() => {
+    // Fetch images by default category when the component mounts
+    fetchImagesByCategory(defaultCategory);
+  }, []); // Empty dependency array makes this effect run only once, when the component mounts
 
   const fetchImagesByCategory = async (category: string) => {
     try {

@@ -1,8 +1,7 @@
-// Import necessary dependencies and components
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import Alert from "./Alert"; 
 
-// Define Contact component
 const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({
@@ -12,6 +11,10 @@ const Contact = () => {
   });
 
   const [loading, setLoading] = useState(false);
+
+  // New states for Alert control
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
 
   const handleChange = (e) => {
     const { target } = e;
@@ -43,7 +46,10 @@ const Contact = () => {
       .then(
         () => {
           setLoading(false);
-          alert("Thank you. I will get back to you within 5 business days!");
+          setAlertMessage(
+            "Thank you. I will get back to you within 5 business days!"
+          );
+          setShowAlert(true);
           setForm({
             name: "",
             email: "",
@@ -52,7 +58,8 @@ const Contact = () => {
         },
         (error) => {
           setLoading(false);
-          alert("Something went wrong.");
+          setAlertMessage("Something went wrong.");
+          setShowAlert(true);
         }
       );
   };
@@ -66,7 +73,9 @@ const Contact = () => {
           className="flex flex-col space-y-3"
         >
           <label className="flex flex-col">
-            <span className="font-medium text-white text-center">Your Name</span>
+            <span className="text-center font-medium text-white">
+              Your Name
+            </span>
             <input
               type="text"
               name="name"
@@ -79,7 +88,9 @@ const Contact = () => {
           </label>
 
           <label className="flex flex-col">
-            <span className="rounded px-3 font-medium text-white text-center">Your Email</span>
+            <span className="rounded px-3 text-center font-medium text-white">
+              Your Email
+            </span>
             <input
               type="email"
               name="email"
@@ -92,26 +103,34 @@ const Contact = () => {
           </label>
 
           <label className="flex flex-col">
-            <span className="font-medium text-white text-center">Your Message</span>
+            <span className="text-center font-medium text-white">
+              Your Message
+            </span>
             <textarea
               name="message"
               required
               value={form.message}
               onChange={handleChange}
               placeholder="Make Sure To Add Phone #, Date, and Location."
-              className="rounded-lg border-2 border-none border-white px-6 py-4 text-center font-medium text-white outline-none placeholder:text-white/50 bg-white/25"
+              className="rounded-lg border-2 border-none border-white bg-white/25 px-6 py-4 text-center font-medium text-white outline-none placeholder:text-white/50"
             />
           </label>
 
           <div className="flex flex-col items-center sm:flex-row sm:justify-center">
             <button
               type="submit"
-              className="mt-4 w-full rounded-xl bg-white px-8 py-3 font-bold text-black shadow-lg shadow-black outline-none sm:w-auto active:bg-slate-500 hover:bg-slate-500"
+              className="mt-4 w-full rounded-xl bg-white px-8 py-3 font-bold text-black shadow-lg shadow-black outline-none hover:bg-slate-500 active:bg-slate-500 sm:w-auto"
             >
               {loading ? "Sending..." : "Send"}
             </button>
           </div>
         </form>
+
+        <Alert
+          isOpen={showAlert}
+          message={alertMessage}
+          onClose={() => setShowAlert(false)}
+        />
       </div>
     </div>
   );
