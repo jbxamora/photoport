@@ -1,90 +1,44 @@
-import { useState } from "react";
 import Image from "next/image";
 import Port from "../public/serg.png";
 import Link from "next/link";
 
-import Instagram from "../components/Icons/Instagram";
-import Email from "../components/Icons/Email"
-
 const About = ({ className = "" }) => {
-  const [showContact, setShowContact] = useState(false);
-
   return (
     <div
       className={`${className} container col-span-1 hidden h-[629px] flex-col overflow-y-auto rounded-lg  bg-white/10 px-6 text-white shadow-highlight md:block`}
     >
-      {!showContact && (
-        <div className="flex justify-center">
-          <Image
-            src={Port}
-            alt="Serg"
-            width={300}
-            height={300}
-            className="mb-5 mt-10 rounded-full"
-          />
-        </div>
-      )}
-      {!showContact ? (
-        <>
-          <h1 className="mb-5 text-center text-2xl font-bold uppercase tracking-widest">
-            About Me
-          </h1>
-          <p className="mx-auto px-4 text-center text-lg text-white/75 lg:hidden">
-            I'm a web developer with a deep passion for photography. I freeze
-            moments in time and tell unique stories through my images.
-          </p>
-          <p className="mx-auto hidden px-4 text-center text-lg text-white/75 lg:block">
-            I am a web developer with a deep passion in the art of photography.
-            With every click of the shutter, I freeze moments in time and
-            preserve memories that tell unique stories. I strive to create an
-            immersive experience where each image transports you to a different
-            place and evokes a myriad of emotions.
-          </p>
-          <button
-            className="mx-auto mt-4 flex rounded border px-4 py-2 font-bold text-white hover:border-green-400"
-            onClick={() => setShowContact(true)}
-          >
-            Get In Touch
-          </button>
-        </>
-      ) : (
-        <>
-          <h1 className="mb-5 mt-10 text-center text-2xl font-bold uppercase tracking-widest">
-            Let's Create Together
-          </h1>
-          <p className="m-4 mx-auto p-4 text-center text-lg text-white/75">
-            If interested in a shoot, send me an email below:
-          </p>
-          <p className="m-4 mx-auto p-4 text-center text-lg text-white/75">
-            I will contact you to work out further details regarding the time,
-            location, and price of the shoot through email as soon as possible.
-            I'm looking forward to capturing the perfect shots for your needs!
-          </p>
-          <p className="mx-auto mb-8 text-center text-lg text-white/75">
-            Got any unique requests or queries? Don't hesitate to DM me on
-            Instagram or drop me an email. I'm here to answer any and all your
-            questions.
-          </p>
-          <div className="mb-8 flex flex-row justify-center">
-            <Link href="https://instagram.com/sondersergio" target="_blank">
-              <button className="flex items-center rounded px-4 py-2">
-                <Instagram />
-              </button>
-            </Link>
-            <Link href="mailto:sergiourbina1@yahoo.com?subject=Exciting%20Collaboration%20Opportunity&body=Hey%20Sergio,%0A%0AHope this email finds you well!%0A%0AI saw your photo gallery and wanted to reach out to discuss a potential collaboration%0A%0AI have an exciting project in mind where your unique artistic vision and expertise can shine.%0A%0A[About Your Project]%0A%0APlease let me know your availability for a quick call or meeting. I'm eager to hear your thoughts and ideas.%0A%0AThank you for considering this invitation.%0A%0A[Your Name]">
-              <button className="flex items-center rounded px-4 py-2">
-                <Email />
-              </button>
-            </Link>
-          </div>
-          <button
-            className="mx-auto mt-4 flex rounded border px-4 py-2 font-bold text-white hover:border-green-400"
-            onClick={() => setShowContact(false)}
-          >
-            Back
-          </button>
-        </>
-      )}
+      <div className="flex justify-center">
+        <Image
+          src={Port}
+          alt="Serg"
+          width={300}
+          height={300}
+          className="mb-5 mt-10 rounded-full"
+        />
+      </div>
+
+      <h1 className="mb-5 text-center text-2xl font-bold uppercase tracking-widest">
+        About Me
+      </h1>
+      <p className="mx-auto px-4 text-center text-lg text-white/75 lg:hidden">
+        I'm a web developer with a deep passion for photography. I freeze
+        moments in time and tell unique stories through my images.
+      </p>
+      <p className="mx-auto hidden px-4 text-center text-lg text-white/75 lg:block">
+        I am a web developer with a deep passion in the art of photography. With
+        every click of the shutter, I freeze moments in time and preserve
+        memories that tell unique stories. I strive to create an immersive
+        experience where each image transports you to a different place and
+        evokes a myriad of emotions.
+      </p>
+      <div className="text-center">
+        <Link
+          href="/contact"
+          className="mt-4 bg-white/10 inline-flex items-center justify-center rounded-lg px-4 py-2 shadow-highlight text-white hover:white-white/20"
+        >
+          Get In Touch
+        </Link>
+      </div>
     </div>
   );
 };
@@ -150,4 +104,3 @@ export default About;
 // We'll quickly sort out all the details including the time, location, and pricing. I'm thrilled to capture the best shots for you!
 
 // If you have any unique requests or queries, just message me on Instagram or reach me via email. Let's make your photoshoot a memorable one!
-

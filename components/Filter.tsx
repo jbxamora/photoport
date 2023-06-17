@@ -13,29 +13,30 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
     onCategorySelect(category);
   };
 
-  const handleAllSelect = () => {
-    onCategorySelect(""); // Pass an empty string to indicate "All" category
-  };
-
   return (
-    <div className="flex flex-wrap justify-around gap-4 rounded bg-white/10 shadow-highlight py-3 sm:px-0">
-      <button
-        key="all"
-        className="m-1 rounded-lg px-2 py-1 text-xs text-gray-200 transition-colors duration-200 hover:animate-pulse focus:outline-none sm:m-0 sm:px-4 sm:py-2 sm:text-base shadow-highlight focus:border"
-        onClick={handleAllSelect}
+    <>
+      <div className="hidden flex-wrap justify-around gap-4 rounded bg-white/10 py-3 shadow-highlight sm:flex sm:px-0">
+        {categories.map((category, index) => (
+          <button
+            key={index}
+            className="m-1 rounded-lg px-2 py-1 text-xs text-gray-200 shadow-highlight transition-colors duration-200 hover:animate-pulse focus:border focus:outline-none sm:m-0 sm:px-4 sm:py-2 sm:text-base"
+            onClick={() => handleCategorySelect(category)}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+      <select
+        className="block bg-white/10 py-3 shadow-highlight rounded-lg text-center text-gray-200 w-full sm:hidden"
+        onChange={(e) => handleCategorySelect(e.target.value)}
       >
-        All
-      </button>
-      {categories.map((category, index) => (
-        <button
-          key={index}
-          className="m-1 rounded-lg shadow-highlight px-2 py-1 text-xs text-gray-200 transition-colors duration-200 hover:animate-pulse focus:outline-none sm:m-0 sm:px-4 sm:py-2 sm:text-base focus:border"
-          onClick={() => handleCategorySelect(category)}
-        >
-          {category}
-        </button>
-      ))}
-    </div>
+        {categories.map((category, index) => (
+          <option key={index} value={category}>
+            {category}
+          </option>
+        ))}
+      </select>
+    </>
   );
 };
 
