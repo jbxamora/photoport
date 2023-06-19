@@ -151,8 +151,10 @@ const Home: NextPage = ({
 export default Home;
 
 export async function getStaticProps() {
+  const defaultCategory = "Automotive";
+
   const results = await cloudinary.v2.search
-    .expression(`folder:samples/*`)
+    .expression(`folder:samples/${defaultCategory}`)
     .sort_by("public_id", "desc")
     .max_results(400)
     .execute();
