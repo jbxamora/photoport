@@ -110,7 +110,7 @@ const Home: NextPage = ({
             "Wedding",
             "Holiday Card",
             "Baptism",
-            "Farmers-Market",
+            "Farmers Market",
           ]}
           initialCategory={defaultCategory}
           onCategorySelect={handleCategorySelect}
