@@ -18,3 +18,12 @@ export interface SharedModalProps {
   navigation: boolean
   direction?: number
 }
+
+export default interface Client {
+  id: number;
+  name: string;
+  slug: string;
+  image: string;
+  password: string | null; 
+}
+
