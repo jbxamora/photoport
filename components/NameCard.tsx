@@ -19,23 +19,24 @@ const NameCard: React.FC<NameCardProps> = ({ className = "" }) => {
         <span className="absolute bottom-0 left-0 right-0 h-[400px] bg-gradient-to-b from-black/0 via-black to-black"></span>
       </div>
 
-      <div className="hidden lg:block">
+      <div className="block">
         <Logo />
       </div>
-      <div className="mb-15 block text-3xl font-bold text-slate-300 lg:hidden">
-        Sergio Urbina
-      </div>
-      <p className="text-white/75 ">San Francisco, CA</p>
+   
+      <p className="text-white/75 tracking-wide mb-6">San Francisco, CA</p>
 
       <h1 className="mb-4 mt-8 text-2xl font-bold uppercase tracking-widest">
-        Gallery
+                                       
       </h1>
-      <p className="text-white/75 ">Capturing Amazing Moments Since 2017</p>
+      <p className="text-white/75 mb-6 mt-4 tracking-widest ">
+        Capturing Amazing Moments Since 2017
+      </p>
 
-      <Link href="/contact"
-         className="z-50 mt-4 rounded-lg bg-white/10 px-4 py-2 text-white shadow-highlight hover:bg-white/20 md:hidden">
-          Get In Touch
-
+      <Link
+        href="/contact"
+        className="z-50 mt-4 rounded-lg bg-white/10 px-4 py-2 text-white shadow-highlight hover:bg-white/20 md:hidden"
+      >
+        Get In Touch
       </Link>
     </div>
   );
