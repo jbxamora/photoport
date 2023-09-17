@@ -25,7 +25,7 @@ const Home: NextPage = ({
   const [lastViewedPhoto, setLastViewedPhoto] = useLastViewedPhoto();
   const [filteredImages, setFilteredImages] = useState(images);
 
-  const defaultCategory = "Event";
+  const defaultCategory = "Events";
   useEffect(() => {
     // Fetch images by default category when the component mounts
     fetchImagesByCategory(defaultCategory);
@@ -105,9 +105,10 @@ const Home: NextPage = ({
         </div>
         <Filter
           categories={[
-            "Event",
+            "Events",
             "Portraits",
             "Headshots",
+            "Studio",
           ]}
           initialCategory={defaultCategory}
           onCategorySelect={handleCategorySelect}
