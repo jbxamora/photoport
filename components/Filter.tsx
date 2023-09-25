@@ -38,7 +38,7 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
         ))}
       </div>
       <select
-        className="block w-full rounded-lg bg-white/10 py-3 text-center text-gray-800 shadow-sm shadow-black sm:hidden"
+        className="block w-full rounded-lg bg-white/60 py-3 text-center align-middle text-gray-800 shadow-sm shadow-black "
         onChange={(e) => handleCategorySelect(e.target.value)}
         value={selectedCategory}
       >

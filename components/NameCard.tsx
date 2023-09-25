@@ -10,9 +10,9 @@ interface NameCardProps {
 const NameCard: React.FC<NameCardProps> = ({ className = "" }) => {
   return (
     <div
-      className={`${className} relative mb-5 flex h-[629px] w-[600px] flex-col items-center justify-end gap-4 overflow-hidden rounded-lg bg-white/10 px-6 pb-16 pt-64 text-center text-black shadow-sm shadow-black after:absolute after:inset-0 after:rounded-lg after:shadow-sm shadow-black lg:pt-0`}
+      className={`${className} relative mb-5 flex h-[629px] w-[600px] flex-col items-center justify-end gap-4 overflow-hidden rounded-lg bg-white/10 px-6 pb-16 pt-64 text-center text-black shadow-sm  after:absolute after:inset-0 after:rounded-lg after:shadow-sm shadow-black lg:pt-0 `}
     >
-      <div className="absolute inset-0 flex items-center justify-center opacity-20">
+      <div className="absolute inset-0 flex items-center justify-center opacity-10">
         <span className="flex max-h-full max-w-full items-center justify-center">
           <Bridge />
         </span>
