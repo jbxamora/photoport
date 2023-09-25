@@ -89,6 +89,40 @@ const Home: NextPage = ({
     <>
       <Head>
         <title>Sergio Urbina</title>
+        <meta name="description" content="Sergio Urbina || Uncut Photography" />
+        <meta
+          name="keywords"
+          content="photography, studio photographer, model photography"
+        />
+        <meta name="author" content="Sergio Urbina" />
+        <meta
+          property="og:title"
+          content="Sergio Urbina || Uncut Photography"
+        />
+        <meta
+          property="og:description"
+          content="CEO of Twyne || Professional Photographer specializing in studio and model photography. || Open for bookings"
+        />
+        <meta
+          property="og:image"
+          content="https://www.uncutphotos.com/serg.png"
+        />
+        <meta property="og:url" content="https://www.uncutphotos.com" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Sergio Urbina || Uncut Photography"
+        />
+        <meta
+          name="twitter:description"
+          content="CEO of Twyne || Professional Photographer specializing in studio and model photography. || Open for bookings"
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.uncutphotos.com/serg.png"
+        />
+        <link rel="icon" href="/favicon.png" />
       </Head>
       <main className="mx-auto max-w-[1960px] p-4">
         {photoId && (
@@ -104,12 +138,7 @@ const Home: NextPage = ({
           <About className="flex-grow" />
         </div>
         <Filter
-          categories={[
-            "Events",
-            "Portraits",
-            "Headshots",
-            "Studio",
-          ]}
+          categories={["Events", "Portraits", "Headshots", "Studio"]}
           initialCategory={defaultCategory}
           onCategorySelect={handleCategorySelect}
         />
