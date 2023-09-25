@@ -12,7 +12,7 @@ export default function Logo() {
       <g transform="matrix(1,0,0,1,-1.2121212121212466,0.11759054996753093)">
         <svg
           viewBox="0 0 396 44"
-          data-background-color="#ffffff"
+          data-background-color="#000000"
           preserveAspectRatio="xMidYMid meet"
           height="222"
           width="2000"
@@ -30,7 +30,7 @@ export default function Logo() {
               <rect
                 width="395.52"
                 height="44.04661247025743"
-                fill="#ffffff"
+                fill="#000000"
                 mask='url("#cb410371-d1aa-4e65-b473-393416f2c6ee")'
                 data-fill-palette-color="primary"
               ></rect>
@@ -83,7 +83,7 @@ export default function Logo() {
                         <rect
                           width="13.844560842163299"
                           height="50.65083234937792"
-                          fill="#ffffff"
+                          fill="#000000"
                           stroke="transparent"
                           data-fill-palette-color="accent"
                           x="0"
@@ -92,7 +92,7 @@ export default function Logo() {
                         <rect
                           width="13.844560842163299"
                           height="50.65083234937792"
-                          fill="#ffffff"
+                          fill="#000000"
                           stroke="transparent"
                           data-fill-palette-color="accent"
                           x="16.883610783125974"
@@ -101,7 +101,7 @@ export default function Logo() {
                         <rect
                           width="13.844560842163299"
                           height="50.65083234937792"
-                          fill="#ffffff"
+                          fill="#000000"
                           stroke="transparent"
                           data-fill-palette-color="accent"
                           x="33.76722156625195"

@@ -73,7 +73,7 @@ const Contact = () => {
           className="flex flex-col space-y-3"
         >
           <label className="flex flex-col">
-            <span className="text-center font-medium text-white">
+            <span className="text-center font-medium text-black">
               Your Name
             </span>
             <input
@@ -83,12 +83,12 @@ const Contact = () => {
               value={form.name}
               onChange={handleChange}
               placeholder="What's your name?"
-              className="rounded-lg border-2 border-none border-white bg-white/25 px-6 py-4 text-center font-medium text-white outline-none placeholder:text-white/50"
+              className="rounded-lg border-2 border-none border-white bg-white/25 px-6 py-4 text-center font-medium text-black outline-none placeholder:text-black/50"
             />
           </label>
 
           <label className="flex flex-col">
-            <span className="rounded px-3 text-center font-medium text-white">
+            <span className="rounded px-3 text-center font-medium text-black">
               Your Email
             </span>
             <input
@@ -98,12 +98,12 @@ const Contact = () => {
               value={form.email}
               onChange={handleChange}
               placeholder="What's your email?"
-              className="rounded-lg border-2 border-none border-white bg-white/25 px-6 py-4 text-center font-medium text-white outline-none placeholder:text-white/50"
+              className="rounded-lg border-2 border-none border-white bg-white/25 px-6 py-4 text-center font-medium text-black outline-none placeholder:text-black/50"
             />
           </label>
 
           <label className="flex flex-col">
-            <span className="text-center font-medium text-white">
+            <span className="text-center font-medium text-black">
               Your Message
             </span>
             <textarea
@@ -112,14 +112,14 @@ const Contact = () => {
               value={form.message}
               onChange={handleChange}
               placeholder="Make Sure To Add Phone #, Date, and Location."
-              className="rounded-lg border-2 border-none border-white bg-white/25 px-6 py-4 text-center font-medium text-white outline-none placeholder:text-white/50"
+              className="rounded-lg border-2 border-none border-white bg-white/25 px-6 py-4 text-center font-medium text-black outline-none placeholder:text-black/50"
             />
           </label>
 
           <div className="flex flex-col items-center sm:flex-row sm:justify-center">
             <button
               type="submit"
-              className="mt-4 w-full rounded-xl bg-white px-8 py-3 font-bold text-black shadow-lg shadow-black outline-none hover:bg-slate-500 active:bg-slate-500 sm:w-auto"
+              className="mt-4 w-full rounded-xl bg-white px-8 py-3 font-bold text-black shadow-lg shadow-black outline-none hover:bg-white/20 active:bg-white/20 sm:w-auto"
             >
               {loading ? "Sending..." : "Send"}
             </button>

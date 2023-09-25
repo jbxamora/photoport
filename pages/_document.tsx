@@ -11,7 +11,7 @@ class MyDocument extends Document {
             content="See pictures from Sergios Photo Gallery"
           />
         </Head>
-        <body className="bg-black antialiased">
+        <body className="bg-white antialiased">
           <Main />
           <NextScript />
         </body>

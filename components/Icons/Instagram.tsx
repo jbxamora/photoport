@@ -8,7 +8,7 @@ export default function Instagram(props: any) {
       fillRule="nonzero"
     >
       <g
-        fill="#c0c0c0"
+        fill="#000000"
         fillRule="nonzero"
         stroke="none"
         strokeWidth="1"
